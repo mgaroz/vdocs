@@ -8,10 +8,10 @@ branches:
 script:
 - pip install mkdocs
 - mkdocs build --clean
-- docker build -t $DOCKER_USER/documentation-as-code .
-- docker tag $DOCKER_USER/documentation-as-code $DOCKER_USER/documentation-as-code:latest
+- docker build -t $DOCKER_USER/mkdocs .
+- docker tag $DOCKER_USER/mkdocs:v2
 - docker login -u $DOCKER_USER -p $DOCKER_PASS
-- docker push $DOCKER_USER/documentation-as-code
+- docker push $DOCKER_USER/mkdocs
 notifications:
   email:
     on_failure: change
